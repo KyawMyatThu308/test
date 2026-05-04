@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>I Love You Ma Ma💖</title>
+
+<style>
+    body {
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #ff9ecf, #ffd6ec, #ffe6f5);
+        margin: 0;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(15px);
+        padding: 30px;
+        border-radius: 25px;
+        box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+        width: 320px;
+    }
+
+    h1 {
+        color: #ff1493;
+        font-size: 32px;
+        text-shadow: 0 0 10px #ff99cc;
+    }
+
+    h2 {
+        font-size: 18px;
+        color: #99004d;
+        margin-bottom: 15px;
+    }
+
+    img {
+        width: 200px;
+        border-radius: 20px;
+        margin: 15px 0;
+        box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
+    }
+
+    p {
+        font-size: 18px;
+        color: #660033;
+    }
+
+    button {
+        padding: 12px 24px;
+        font-size: 16px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        margin: 10px;
+        transition: 0.3s;
+    }
+
+    .yes {
+        background: linear-gradient(45deg, #ff1493, #ff66b2);
+        color: white;
+        box-shadow: 0 5px 15px rgba(255, 20, 147, 0.6);
+    }
+
+    .yes:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 25px #ff66b2;
+    }
+
+    .no {
+        background: #ffb3d9;
+        color: white;
+        position: absolute;
+    }
+
+    #response {
+        margin-top: 15px;
+        font-size: 20px;
+        color: #ff0066;
+        font-weight: bold;
+    }
+
+    /* floating hearts */
+    .heart {
+        position: absolute;
+        font-size: 20px;
+        animation: float 6s linear infinite;
+        opacity: 0.8;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(100vh) scale(1); opacity: 1; }
+        100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+    }
+
+    /* sparkle effect */
+    .sparkle {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: white;
+        border-radius: 50%;
+        animation: sparkle 2s infinite;
+    }
+
+    @keyframes sparkle {
+        0%,100% { opacity: 0; transform: scale(0.5); }
+        50% { opacity: 1; transform: scale(1.5); }
+    }
+</style>
+
+</head>
+<body>
+
+<div class="card">
+    <h1>I Love You Ma Ma 💖</h1>
+    <h2>You possess the most beautiful eyes</h2>
+
+    <img src="image1.jpg" alt="Cute Image">
+
+    <p>Do you love me? 🥺</p>
+
+    <button class="yes" onclick="yesClick()">Yes 💕</button>
+    <button class="no" id="noBtn">No 😢</button>
+
+    <p id="response"></p>
+</div>
+
+<script>
+    function yesClick() {
+        
+
+        setTimeout(() => {
+            window.open("love.html", "_blank");
+        }, 800);
+    }
+
+    const noBtn = document.getElementById("noBtn");
+
+    noBtn.addEventListener("mouseover", function() {
+        const x = Math.random() * (window.innerWidth - 100);
+        const y = Math.random() * (window.innerHeight - 100);
+
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    });
+
+    // hearts
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "💖";
+
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.fontSize = (15 + Math.random() * 20) + "px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 300);
+
+    // sparkles
+    function createSparkle() {
+        const s = document.createElement("div");
+        s.classList.add("sparkle");
+
+        s.style.left = Math.random() * window.innerWidth + "px";
+        s.style.top = Math.random() * window.innerHeight + "px";
+
+        document.body.appendChild(s);
+
+        setTimeout(() => s.remove(), 2000);
+    }
+    setInterval(createSparkle, 200);
+</script>
+
+</body>
+</html>
